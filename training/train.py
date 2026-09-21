@@ -6,7 +6,7 @@ Main training driver. Orchestrates:
     Phase 2 : fine-tune deepest backbone blocks at a lower LR
 with early stopping on validation loss, best-checkpoint saving, a fixed
 random seed for reproducibility, and MLflow experiment tracking
-(SRS Sections 9, 11, 16).
+
 
 Run:
     python training/train.py
@@ -111,7 +111,7 @@ def main():
     set_seed(config.RANDOM_SEED)
     config.CHECKPOINT_DIR.mkdir(parents=True, exist_ok=True)
 
-    mlflow.set_tracking_uri(f"file:{config.MLFLOW_TRACKING_DIR}")
+    mlflow.set_tracking_uri(f"sqlite:///{config.MLFLOW_TRACKING_DIR / 'mlflow.db'}")
     mlflow.set_experiment("ai_vs_real_detection")
 
     print(f"Using device: {config.DEVICE}")

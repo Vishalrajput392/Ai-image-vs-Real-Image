@@ -46,17 +46,18 @@ def train_one_epoch(model, dataloader, optimizer, criterion, device, epoch_num=N
     desc = f"Train (epoch {epoch_num})" if epoch_num is not None else "Train"
     pbar = tqdm(dataloader, desc=desc, leave=False)
 
-    for images, labels in pbar:
-        images = images.to(device, non_blocking=True)
+    for (rgb, freq), labels in pbar:
+        rgb = rgb.to(device, non_blocking=True)
+        freq = freq.to(device, non_blocking=True)
         labels = labels.to(device, non_blocking=True)
 
         optimizer.zero_grad()
-        logits = model(images).squeeze(-1)  # [B, 1] -> [B]
+        logits = model(rgb, freq).squeeze(-1)
         loss = criterion(logits, labels)
         loss.backward()
         optimizer.step()
 
-        batch_size = images.size(0)
+        batch_size = rgb.size(0)
         running_loss += loss.item() * batch_size
         running_correct += _batch_accuracy(logits.unsqueeze(-1), labels)
         total_samples += batch_size
@@ -78,14 +79,15 @@ def validate(model, dataloader, criterion, device, epoch_num=None):
     desc = f"Val (epoch {epoch_num})" if epoch_num is not None else "Val"
     pbar = tqdm(dataloader, desc=desc, leave=False)
 
-    for images, labels in pbar:
-        images = images.to(device, non_blocking=True)
+    for (rgb, freq), labels in pbar:
+        rgb = rgb.to(device, non_blocking=True)
+        freq = freq.to(device, non_blocking=True)
         labels = labels.to(device, non_blocking=True)
 
-        logits = model(images).squeeze(-1)
+        logits = model(rgb, freq).squeeze(-1)
         loss = criterion(logits, labels)
 
-        batch_size = images.size(0)
+        batch_size = rgb.size(0)
         running_loss += loss.item() * batch_size
         running_correct += _batch_accuracy(logits.unsqueeze(-1), labels)
         total_samples += batch_size

@@ -32,3 +32,6 @@ uvicorn[standard]>=0.27.0
 python-multipart>=0.0.9
 streamlit>=1.32.0
 requests>=2.31.0
+
+# --- Metadata hint (EXIF/PNG-text check, no Pillow) ---
+exifread>=3.0.0

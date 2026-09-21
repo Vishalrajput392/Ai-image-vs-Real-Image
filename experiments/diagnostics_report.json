@@ -1,0 +1,253 @@
+{
+  "dataset_composition": {
+    "total_images": 127850,
+    "by_label": {
+      "1": 65438,
+      "0": 62412
+    },
+    "by_split": {
+      "train": 90493,
+      "test": 21060,
+      "val": 16297
+    },
+    "by_split_label": {
+      "0": {
+        "test": 10242,
+        "train": 44188,
+        "val": 7982
+      },
+      "1": {
+        "test": 10818,
+        "train": 46305,
+        "val": 8315
+      }
+    },
+    "by_source": {
+      "archive": 120000,
+      "ai_ss": 5438,
+      "real_ss": 2412
+    },
+    "by_source_split": {
+      "test": {
+        "ai_ss": 818,
+        "archive": 20000,
+        "real_ss": 242
+      },
+      "train": {
+        "ai_ss": 3805,
+        "archive": 85000,
+        "real_ss": 1688
+      },
+      "val": {
+        "ai_ss": 815,
+        "archive": 15000,
+        "real_ss": 482
+      }
+    },
+    "generator_by_split": {
+      "test": {
+        "flux": 620,
+        "gemini": 16,
+        "midjourney": 16,
+        "stable_diffusion": 166
+      },
+      "train": {
+        "flux": 2889,
+        "gemini": 73,
+        "midjourney": 71,
+        "stable_diffusion": 772
+      },
+      "val": {
+        "flux": 619,
+        "gemini": 16,
+        "midjourney": 15,
+        "stable_diffusion": 165
+      }
+    }
+  },
+  "threshold": 0.35,
+  "generator_report": {
+    "flux": {
+      "num_samples": 620,
+      "accuracy": 0.9516,
+      "recall": 0.9516,
+      "false_negative_rate": 0.0484
+    },
+    "gemini": {
+      "num_samples": 16,
+      "accuracy": 0.875,
+      "recall": 0.875,
+      "false_negative_rate": 0.125
+    },
+    "midjourney": {
+      "num_samples": 16,
+      "accuracy": 0.9375,
+      "recall": 0.9375,
+      "false_negative_rate": 0.0625
+    },
+    "nan": {
+      "num_samples": 20242,
+      "accuracy": 0.9379,
+      "recall": 0.9379,
+      "false_negative_rate": 0.0621
+    },
+    "stable_diffusion": {
+      "num_samples": 166,
+      "accuracy": 0.9699,
+      "recall": 0.9699,
+      "false_negative_rate": 0.0301
+    }
+  },
+  "flux_misclassified": [
+    {
+      "sample_id": 126146,
+      "filepath": "C:\\Work\\Project\\data_raw\\ai_ss\\flux\\flux images\\Screenshot 2026-08-25 163521.png",
+      "prob_ai": 0.16601772606372833
+    },
+    {
+      "sample_id": 126169,
+      "filepath": "C:\\Work\\Project\\data_raw\\ai_ss\\flux\\flux images\\screenshot_601_flux_4898.png",
+      "prob_ai": 0.3117022216320038
+    },
+    {
+      "sample_id": 126196,
+      "filepath": "C:\\Work\\Project\\data_raw\\ai_ss\\flux\\flux images\\screenshot_622_flux_4916.png",
+      "prob_ai": 0.04458612576127052
+    },
+    {
+      "sample_id": 126211,
+      "filepath": "C:\\Work\\Project\\data_raw\\ai_ss\\flux\\flux images\\screenshot_267_flux_4597.png",
+      "prob_ai": 0.15815885365009308
+    },
+    {
+      "sample_id": 126275,
+      "filepath": "C:\\Work\\Project\\data_raw\\ai_ss\\flux\\flux images\\screenshot_111_flux_10089.png",
+      "prob_ai": 0.32563310861587524
+    },
+    {
+      "sample_id": 126281,
+      "filepath": "C:\\Work\\Project\\data_raw\\ai_ss\\flux\\flux images\\screenshot_264_flux_4594.png",
+      "prob_ai": 0.1780298501253128
+    },
+    {
+      "sample_id": 126313,
+      "filepath": "C:\\Work\\Project\\data_raw\\ai_ss\\flux\\flux images\\Screenshot 2026-08-25 163212.png",
+      "prob_ai": 2.6237544261675794e-06
+    },
+    {
+      "sample_id": 126337,
+      "filepath": "C:\\Work\\Project\\data_raw\\ai_ss\\flux\\flux images\\screenshot_258_flux_4589.png",
+      "prob_ai": 0.1780298501253128
+    },
+    {
+      "sample_id": 126346,
+      "filepath": "C:\\Work\\Project\\data_raw\\ai_ss\\flux\\flux images\\screenshot_551_flux_10485.png",
+      "prob_ai": 0.29734092950820923
+    },
+    {
+      "sample_id": 126351,
+      "filepath": "C:\\Work\\Project\\data_raw\\ai_ss\\flux\\flux images\\Screenshot 2026-08-25 161505.png",
+      "prob_ai": 0.050271324813365936
+    },
+    {
+      "sample_id": 126375,
+      "filepath": "C:\\Work\\Project\\data_raw\\ai_ss\\flux\\flux images\\screenshot_266_flux_4596.png",
+      "prob_ai": 0.1780298501253128
+    },
+    {
+      "sample_id": 126376,
+      "filepath": "C:\\Work\\Project\\data_raw\\ai_ss\\flux\\flux images\\screenshot_831_flux_5104.png",
+      "prob_ai": 0.16513244807720184
+    },
+    {
+      "sample_id": 126412,
+      "filepath": "C:\\Work\\Project\\data_raw\\ai_ss\\flux\\flux images\\screenshot_512_flux_3015.png",
+      "prob_ai": 0.3379342257976532
+    },
+    {
+      "sample_id": 126447,
+      "filepath": "C:\\Work\\Project\\data_raw\\ai_ss\\flux\\flux images\\screenshot_255_flux_2784.png",
+      "prob_ai": 0.1003774031996727
+    },
+    {
+      "sample_id": 126490,
+      "filepath": "C:\\Work\\Project\\data_raw\\ai_ss\\flux\\flux images\\screenshot_254_flux_4585.png",
+      "prob_ai": 0.1780298501253128
+    },
+    {
+      "sample_id": 126506,
+      "filepath": "C:\\Work\\Project\\data_raw\\ai_ss\\flux\\flux images\\screenshot_268_flux_4598.png",
+      "prob_ai": 0.1780298501253128
+    },
+    {
+      "sample_id": 126510,
+      "filepath": "C:\\Work\\Project\\data_raw\\ai_ss\\flux\\flux images\\screenshot_927_flux_10823.png",
+      "prob_ai": 0.2732499837875366
+    },
+    {
+      "sample_id": 126550,
+      "filepath": "C:\\Work\\Project\\data_raw\\ai_ss\\flux\\flux images\\screenshot_923_flux_1082.png",
+      "prob_ai": 0.013499158434569836
+    },
+    {
+      "sample_id": 126581,
+      "filepath": "C:\\Work\\Project\\data_raw\\ai_ss\\flux\\flux images\\screenshot_47_flux_10030.png",
+      "prob_ai": 0.0400153212249279
+    },
+    {
+      "sample_id": 126585,
+      "filepath": "C:\\Work\\Project\\data_raw\\ai_ss\\flux\\flux images\\screenshot_588_flux_13218.png",
+      "prob_ai": 0.1874237060546875
+    },
+    {
+      "sample_id": 126586,
+      "filepath": "C:\\Work\\Project\\data_raw\\ai_ss\\flux\\flux images\\screenshot_770_flux_1446.png",
+      "prob_ai": 0.16633020341396332
+    },
+    {
+      "sample_id": 126596,
+      "filepath": "C:\\Work\\Project\\data_raw\\ai_ss\\flux\\flux images\\Screenshot 2026-08-25 161220.png",
+      "prob_ai": 0.02080780826508999
+    },
+    {
+      "sample_id": 126605,
+      "filepath": "C:\\Work\\Project\\data_raw\\ai_ss\\flux\\flux images\\screenshot_674_flux_3161.png",
+      "prob_ai": 0.004903153050690889
+    },
+    {
+      "sample_id": 126613,
+      "filepath": "C:\\Work\\Project\\data_raw\\ai_ss\\flux\\flux images\\screenshot_213_flux_12881.png",
+      "prob_ai": 0.3209396004676819
+    },
+    {
+      "sample_id": 126631,
+      "filepath": "C:\\Work\\Project\\data_raw\\ai_ss\\flux\\flux images\\screenshot_96_flux_10075.png",
+      "prob_ai": 0.17496484518051147
+    },
+    {
+      "sample_id": 126642,
+      "filepath": "C:\\Work\\Project\\data_raw\\ai_ss\\flux\\flux images\\screenshot_909_flux_1571.png",
+      "prob_ai": 0.15763184428215027
+    },
+    {
+      "sample_id": 126664,
+      "filepath": "C:\\Work\\Project\\data_raw\\ai_ss\\flux\\flux images\\Screenshot 2026-08-25 162548.png",
+      "prob_ai": 1.1998966265025501e-08
+    },
+    {
+      "sample_id": 126673,
+      "filepath": "C:\\Work\\Project\\data_raw\\ai_ss\\flux\\flux images\\screenshot_463_flux_2971.png",
+      "prob_ai": 0.2532675266265869
+    },
+    {
+      "sample_id": 126677,
+      "filepath": "C:\\Work\\Project\\data_raw\\ai_ss\\flux\\flux images\\Screenshot 2026-08-25 163759.png",
+      "prob_ai": 0.28763505816459656
+    },
+    {
+      "sample_id": 126726,
+      "filepath": "C:\\Work\\Project\\data_raw\\ai_ss\\flux\\flux images\\screenshot_745_flux_3225.png",
+      "prob_ai": 0.14457876980304718
+    }
+  ]
+}

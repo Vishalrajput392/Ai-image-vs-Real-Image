@@ -3,10 +3,10 @@ evaluation/evaluate.py
 -----------------------
 Runs the best checkpoint on the held-out test split and reports:
     - Standard metrics: accuracy, precision, recall, F1, ROC-AUC, PR-AUC,
-      confusion matrix, false-positive/false-negative rate (SRS 12.3)
+      confusion matrix, false-positive/false-negative rate 
     - Robustness breakdown by source: 'archive' (original camera/AI
       images) vs 'real_ss'/'ai_ss' (screenshot-derived), reported
-      separately rather than blended (SRS 12.4)
+      separately rather than blended
     - Per-generator breakdown for AI images (Midjourney/Gemini/Flux/
       Stable Diffusion), since no generator was held out this phase
       (see known-limitation note in dataset/manifest_builder.py)
@@ -53,9 +53,10 @@ def run_inference(model, dataloader, device):
     model.eval()
     all_probs, all_labels = [], []
 
-    for images, labels in dataloader:
-        images = images.to(device, non_blocking=True)
-        logits = model(images).squeeze(-1)
+    for (rgb, freq), labels in dataloader:
+        rgb = rgb.to(device, non_blocking=True)
+        freq = freq.to(device, non_blocking=True)
+        logits = model(rgb, freq).squeeze(-1)
         probs = torch.sigmoid(logits).cpu().numpy()
         all_probs.append(probs)
         all_labels.append(labels.numpy())

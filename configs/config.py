@@ -5,8 +5,8 @@ Central configuration for the AI-Generated vs Real Image Detection project.
 
 Purpose:
     Single source of truth for dataset paths, class labels, split ratios,
-    preprocessing constants, and training hyperparameters (SRS Sections
-    6, 7, 9, 11). Every other module imports from here instead of
+    preprocessing constants, and training hyperparameters.
+    Every other module imports from here instead of
     hardcoding values, so changing a setting only requires editing this
     one file.
 
@@ -67,13 +67,13 @@ LABEL_AI = 1
 CLASS_NAMES = {LABEL_REAL: "Real", LABEL_AI: "AI-Generated"}
 
 # ---------------------------------------------------------------------------
-# 3. DATASET SPLIT STRATEGY (SRS Sec 6.3, adapted to actual data — see chat)
+# 3. DATASET SPLIT STRATEGY ( adapted to actual data )
 # ---------------------------------------------------------------------------
 # Archive has train/test only -> we carve validation out of its train split.
 ARCHIVE_VAL_FRACTION = 0.15  # taken from archive "train" to make a val set
 
 # AISS (AI screenshots) has no split at all -> we split it ourselves.
-# NOTE (deviation from SRS Sec 6.2): all 4 generators are included in
+# NOTE : all 4 generators are included in
 # training for this phase; no generator is held out for cross-generator
 # testing. Record this as a known limitation in the final report.
 AISS_TRAIN_FRACTION = 0.70
@@ -83,7 +83,7 @@ AISS_TEST_FRACTION  = 0.15
 RANDOM_SEED = 42
 
 # ---------------------------------------------------------------------------
-# 4. PREPROCESSING (SRS Sec 7)
+# 4. PREPROCESSING 
 # ---------------------------------------------------------------------------
 IMG_SIZE = 224                 # final H x W fed to the model
 MIN_RESOLUTION = 224
@@ -91,19 +91,19 @@ MAX_RESOLUTION = 4096
 MAX_FILE_SIZE_MB = 10
 ALLOWED_FORMATS = {".jpg", ".jpeg", ".png", ".webp"}
 
-# ImageNet normalization stats (matches EfficientNet-B0 pretrained backbone)
+# ImageNet normalization stats (matches EfficientNet-B0 pretrained backbone)/
 IMAGENET_MEAN = [0.485, 0.456, 0.406]
 IMAGENET_STD = [0.229, 0.224, 0.225]
 
 # ---------------------------------------------------------------------------
-# 5. MODEL (SRS Sec 9)
+# 5. MODEL 
 # ---------------------------------------------------------------------------
 BACKBONE = "efficientnet_b0"
 NUM_CLASSES = 1  # single logit, BCEWithLogitsLoss (sigmoid at inference)
 DROPOUT = 0.3
 
 # ---------------------------------------------------------------------------
-# 6. TRAINING (SRS Sec 11)
+# 6. TRAINING 
 # ---------------------------------------------------------------------------
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -120,6 +120,6 @@ MAX_EPOCHS = 40
 EARLY_STOPPING_PATIENCE = 6
 
 # ---------------------------------------------------------------------------
-# 7. EVALUATION (SRS Sec 12)
+# 7. EVALUATION 
 # ---------------------------------------------------------------------------
-CLASSIFICATION_THRESHOLD = 0.5
+CLASSIFICATION_THRESHOLD = 0.35

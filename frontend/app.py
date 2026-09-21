@@ -1,15 +1,13 @@
 """
 frontend/app.py
 ----------------
-Streamlit UI (SRS Section 14.1): upload an image, preview it, send it to
-the FastAPI backend's /predict endpoint, and display the predicted label
-with a probability breakdown.
+Streamlit UI: upload an image, preview it, send it to the FastAPI
+backend's /predict endpoint, and display the predicted label with a
+probability breakdown, plus an optional metadata hint (informational
+only, shown separately from the model's verdict).
 
-Run (after starting the backend):
+Run:
     streamlit run frontend/app.py
-
-Dependencies:
-    streamlit, requests
 """
 
 import requests
@@ -52,6 +50,16 @@ if uploaded_file is not None:
 
                     st.caption(result["disclaimer"])
                     st.caption(f"Model version: {result['model_version']}")
+
+                    # Metadata hint — clearly separate from the model's verdict
+                    meta = result.get("metadata_hint")
+                    if meta and meta.get("matched_keywords"):
+                        st.markdown("---")
+                        st.info(
+                            f"**Metadata hint (informational only):** found references to "
+                            f"{', '.join(meta['matched_keywords'])} in the file's metadata.\n\n"
+                            f"_{meta['note']}_"
+                        )
                 else:
                     error = response.json()
                     st.error(error.get("message", "Something went wrong"))

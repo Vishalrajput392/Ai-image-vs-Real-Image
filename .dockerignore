@@ -1,0 +1,11 @@
+﻿venv/
+__pycache__/
+*.pyc
+data_raw/
+mlruns/
+mlflow.db
+.git/
+.gitignore
+*.jpg
+*.jpeg
+*.png
