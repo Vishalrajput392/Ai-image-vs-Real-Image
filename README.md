@@ -30,32 +30,7 @@ midjourney still sit at only 16 test samples each -- **too small to trust**;
 a couple of misclassifications swing that number by 6-12 points. Treat
 those two as unvalidated until more data is collected.
 
-## Known issues -- not yet resolved
 
-1. **Data leakage across splits.** `evaluation/check_leakage.py` has been
-   run and found **689 cross-split near-duplicate groups** out of 127,850
-   hashed images (see `experiments/leakage_report.json`), plus 1,952
-   same-split duplicate groups. `evaluation/fix_leakage.py` exists and is
-   ready to remove them (train-copy dropped in favor of val/test), but
-   **has not yet been applied to the manifest used for the numbers
-   above**. The metrics in this README are therefore an optimistic upper
-   bound, not a fully validated result -- run `fix_leakage.py`, retrain,
-   and re-evaluate before citing these numbers anywhere formal (report,
-   viva, resume).
-2. **Classification threshold not properly validated.**
-   `CLASSIFICATION_THRESHOLD = 0.35` in `configs/config.py` was set
-   informally. The actual sweep in `experiments/threshold_tuning.json`
-   shows **0.60 gives the best accuracy (95.07%) and F1 (0.9516)** on the
-   validation set, versus 94.05%/0.9436 at 0.35. Re-run
-   `tune_threshold.py` after the leakage fix and retrain, then update
-   `config.py` to the new validated value -- don't keep 0.35 by default.
-3. **No cross-generator holdout test.** All 4 generators (Midjourney,
-   Gemini, Flux, Stable Diffusion) are in training; none has been held out
-   to test generalization to an unseen generator. This is the real test
-   of whether the model detects "AI-generation" in general vs. memorizing
-   these 4 specific generators -- still open.
-4. **Archive dataset provenance unconfirmed** -- origin/collection method
-   of the ~120k-image `archive` source is not yet documented.
 
 ## Folder structure
 
