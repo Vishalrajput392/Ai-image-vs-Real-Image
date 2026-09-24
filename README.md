@@ -2,7 +2,7 @@
 
 Binary image classifier (Real vs AI-Generated) built with transfer-learning
 EfficientNet-B0 (RGB branch) fused with an FFT-magnitude-spectrum branch,
-robust to screenshots, compression, and resizing. Based on SRS v1.1.
+robust to screenshots, compression, and resizing. 
 
 ## Current status (as of latest local run)
 
