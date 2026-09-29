@@ -5,7 +5,7 @@ Detects (near-)duplicate images across the train/val/test splits using
 a perceptual hash (average hash) computed with OpenCV only — no
 Pillow, no external hashing library.
 
-Why this matters (SRS Section 6.3 / 17.2):
+
     If the same image (or a near-identical copy) appears in both the
     training set and the test set, the model can effectively
     "memorize" it, inflating test accuracy without real generalization.
@@ -113,7 +113,7 @@ def main():
     print("=" * 60)
 
     if cross_split_leaks:
-        print("\n⚠️  LEAKAGE DETECTED — example groups (up to 10 shown):")
+        print("\n⚠️  LEAKAGE DETECTED :")
         for group in cross_split_leaks[:10]:
             splits = [item["split"] for item in group["items"]]
             print(f"  hash={group['hash'][:12]}...  splits={splits}  "

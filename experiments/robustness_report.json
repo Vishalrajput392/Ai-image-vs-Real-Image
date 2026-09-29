@@ -1,0 +1,22 @@
+{
+  "original": {
+    "accuracy": 0.932,
+    "num_samples": 500
+  },
+  "jpeg_compressed_q50": {
+    "accuracy": 0.918,
+    "num_samples": 500
+  },
+  "resized_0.5x_roundtrip": {
+    "accuracy": 0.886,
+    "num_samples": 500
+  },
+  "cropped_80pct": {
+    "accuracy": 0.91,
+    "num_samples": 500
+  },
+  "blurred_5x5": {
+    "accuracy": 0.85,
+    "num_samples": 500
+  }
+}

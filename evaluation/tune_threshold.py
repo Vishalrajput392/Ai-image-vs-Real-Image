@@ -108,7 +108,7 @@ def main():
         "  - Higher threshold -> fewer real photos flagged as AI, but more AI images missed\n"
         "  - Pick based on which mistake matters more for your use case, using the table above.\n"
         "  - Whatever you choose, update CLASSIFICATION_THRESHOLD in configs/config.py and\n"
-        "    record the choice + reasoning in your final report (SRS Section 12.2)."
+        "    record the choice + reasoning in your final report ."
     )
 
     out_path = config.EXPERIMENTS_DIR / "threshold_tuning.json"

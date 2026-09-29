@@ -1,7 +1,7 @@
 """
 evaluation/robustness_test.py
 ------------------------------
-Answers Q12: how much does accuracy change under real-world image
+ how much does accuracy change under real-world image
 modifications — original, JPEG compression, resize, crop, blur —
 applied BEFORE the normal preprocessing pipeline (so this measures
 actual robustness, not just what TrainTransform already saw).
@@ -105,7 +105,7 @@ def main():
             results[name]["correct"] += int(pred == label)
             results[name]["total"] += 1
 
-    print("\n=== Q12: Robustness under real-world transformations ===")
+    print("\n Robustness under real-world transformation")
     report = {}
     for name, r in results.items():
         acc = r["correct"] / r["total"]
